@@ -1,0 +1,67 @@
+Ejercicio 19 - Control de corchetes usando Pila
+
+Lenguaje natural
+
+Se recorre la lista de caracteres de entrada desde el principio hasta el final.
+Cada vez que aparece un corchete de apertura "{", se apila en una pila auxiliar.
+Cada vez que aparece un corchete de cierre "}", se verifica si existe una apertura
+pendiente en la pila.
+Si aparece un cierre y la pila esta vacia, la secuencia esta mal formada porque
+hay un cierre sin apertura previa. En ese caso se retorna FALSO.
+Si aparece un cierre y la pila no esta vacia, se quita un elemento porque esa
+apertura queda emparejada con el cierre actual.
+Al terminar el recorrido, la secuencia es correcta solamente si la pila quedo
+vacia. Si la pila no quedo vacia, significa que quedaron aperturas sin cerrar.
+
+Precondiciones:
+Para controlCorchetes(listaDeEntrada):
+- listaDeEntrada no debe ser nula.
+- listaDeEntrada es una lista de caracteres que representa el codigo fuente o una
+  secuencia de entrada.
+- Las operaciones de la lista obtener(i) y tamaño() deben estar implementadas.
+- El TDA Pila debe soportar mete, saca, tope y esVacio.
+
+
+Postcondiciones
+
+Para controlCorchetes(listaDeEntrada):
+- Retorna VERDADERO si cada "}" tiene una "{" previa sin emparejar y no quedan
+  "{" pendientes al final.
+- Retorna FALSO si aparece un "}" sin apertura previa o si quedan "{" sin cerrar.
+- No modifica listaDeEntrada.
+- La pila utilizada es auxiliar y no queda expuesta fuera del metodo.
+
+
+Seudocodigo de controlCorchetes
+
+funcion controlCorchetes(listaDeEntrada: lista de caracteres) -> booleano
+    pila <- nueva Pila de caracteres
+
+    para i <- 0 hasta listaDeEntrada.tamaño() - 1 hacer
+        caracter <- listaDeEntrada.obtener(i)
+
+        si caracter == "{" entonces
+            pila.mete(caracter)
+
+        sino si caracter == "}" entonces
+            si pila.esVacio() entonces
+                retornar FALSO
+            fin si
+
+            pila.saca()
+        fin si
+    fin para
+
+    retornar pila.esVacio()
+fin funcion
+
+
+Analisis de complejidad
+
+Sea n la cantidad de caracteres de listaDeEntrada.
+
+El algoritmo recorre la lista una sola vez. En cada iteracion realiza una cantidad
+constante de operaciones: obtener el caracter, comparar, apilar, desapilar o
+consultar si la pila esta vacia.
+
+Complejidad temporal: O(n)
