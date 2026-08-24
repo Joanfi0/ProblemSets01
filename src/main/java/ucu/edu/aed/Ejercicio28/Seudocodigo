@@ -1,0 +1,68 @@
+Ejercicio 28 - Colas circulares
+
+Lenguaje natural
+
+Se usa una cola como buffer entre un sistema que recibe datos y otro que los
+procesa. La cola trabaja con politica FIFO: el primero que entra es el primero
+que sale.
+
+
+Precondiciones
+
+- La capacidad de ColaCircular debe ser mayor que 0.
+- Para quitar o consultar el frente, la cola no debe estar vacia.
+- Para insertar, el elemento no debe ser null.
+
+
+Postcondiciones
+
+- poneEnCola agrega el elemento al final si hay lugar.
+- quitaDeCola devuelve y elimina el elemento del frente.
+- frente devuelve el elemento del frente sin eliminarlo.
+- En la cola circular, frente y finalCola avanzan usando modulo capacidad.
+
+
+Pseudocodigo PoneEnCola
+
+funcion PoneEnCola(elemento) -> booleano
+    si elemento == null entonces
+        lanzar error
+    fin si
+
+    si size == capacidad entonces
+        retornar FALSO
+    fin si
+
+    vector[finalCola] <- elemento
+    finalCola <- (finalCola + 1) mod capacidad
+    size <- size + 1
+
+    retornar VERDADERO
+fin funcion
+
+
+Pseudocodigo QuitaDeCola
+
+funcion QuitaDeCola() -> elemento
+    si size == 0 entonces
+        lanzar error
+    fin si
+
+    elemento <- vector[frente]
+    vector[frente] <- null
+    frente <- (frente + 1) mod capacidad
+    size <- size - 1
+
+    retornar elemento
+fin funcion
+
+
+Comparacion
+
+Cola enlazada:
+- poneEnCola, quitaDeCola, frente y esVacio: O(1).
+
+
+Cola circular con vector:
+- poneEnCola, quitaDeCola, frente, esVacio y estaLlena: O(1).
+
