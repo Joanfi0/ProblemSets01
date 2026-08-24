@@ -1,6 +1,6 @@
 package ucu.edu.aed.ejercicio17;
 
-import ucu.edu.aed.tda.TDALista;
+import ucu.edu.aed.Implementaciones.tda.TDALista;
 
 import java.util.Objects;
 import java.util.Comparator;
