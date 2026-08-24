@@ -1,0 +1,61 @@
+Se ordenan los jugadores según la prioridad definida:
+primero los habilitados, luego mayor división, menor cantidad de partidas jugadas y, en caso de empate, el orden de registro.
+
+Se seleccionan hasta 20 jugadores. Los habilitados que no ingresan quedan como suplentes.
+Si faltan jugadores, se completa con lesionados o suspendidos de mejor división, marcándolos como pendientes.
+Si aun así no se llega a 20, se informa el déficit.
+
+Precondiciones:
+La lista de jugadores debe ser válida.
+Cada jugador debe tener nombre, división, partidas jugadas y estado.
+La lista debe mantener el orden original de registro.
+
+Postcondiciones:
+Se devuelven como máximo 20 convocados.
+Se respeta el criterio de prioridad.
+Los habilitados sobrantes quedan como suplentes.
+Si faltan habilitados, se completa con lesionados o suspendidos.
+Si no se alcanzan 20 jugadores, se informa el déficit.
+
+FUNCIÓN armarConvocatoria(jugadores)
+
+    ordenar jugadores según prioridad
+
+    convocados <- lista vacía
+    suplentes <- lista vacía
+
+    PARA cada jugador HACER
+
+        SI jugador está HABILITADO ENTONCES
+
+            SI convocados tiene menos de 20 ENTONCES
+                agregar jugador a convocados
+            SINO
+                agregar jugador a suplentes
+            FIN SI
+
+        SINO SI convocados tiene menos de 20 ENTONCES
+            agregar jugador a convocados como PENDIENTE
+        FIN SI
+
+    FIN PARA
+
+    deficit <- 20 - cantidad de convocados
+
+    DEVOLVER ResultadoConvocatoria(
+        convocados,
+        suplentes,
+        deficit
+    )
+
+FIN FUNCIÓN
+
+Ordenar los jugadores según prioridad
+O(n log n)
+Recorrer una vez todos los jugadores
+O(n)
+Entonces:
+
+O(n log n)+O(n)
+=
+O(n log n)
