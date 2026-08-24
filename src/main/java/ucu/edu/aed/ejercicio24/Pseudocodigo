@@ -1,0 +1,85 @@
+
+- Debemos al momento de ingresar un nuevo dato verificar si la lista esta vacia,
+Si se encuentra vacía directamente lo colocamos. Si se encuentra con mas elementos,
+Debemos ir consultando uno a uno si el dato es mayor, si lo es seguimos recorriendo, sino
+lo colocamos antes de ese otro dato.
+
+Precondiciones:
+- Verificar que lo que vamos a ingresar no sea un Objeto vacío.
+- Verificar que lo que vamos a ingresar no exista ya en la lista.
+
+PostCcondiciones:
+- Que te devuelva true al hacer un ingreso existoso.
+- Que te indique un error cuando intenta de ingresar un Objeto que ya existe.
+
+
+Casos de prueba:
+- Intentar ingresar un dato vacío
+- Intentar agregar un dato repetido
+- Agregar un dato con la lista vacía
+- Agregar un dato en la mitad de la lista
+
+función Interseccion(A: Lista, B: Lista, comparador): Lista
+    resultado ← nueva Lista vacía
+    i ← 0
+    j ← 0
+    mientras i < A.tamaño() y j < B.tamaño() hacer
+        si comparador(A[i], B[j]) < 0 entonces
+            i ← i + 1
+        sino si comparador(A[i], B[j]) > 0 entonces
+            j ← j + 1
+        sino  // son iguales
+            resultado.agregar(A[i])
+            i ← i + 1
+            j ← j + 1
+        fin si
+    fin mientras
+    retornar resultado
+fin función
+
+Unión
+
+Especificación en lenguaje natural:
+Dadas dos listas ordenadas (que representan conjuntos, sin elementos repetidos dentro de cada una),
+la operación Unión construye y devuelve una nueva lista ordenada que contiene todos los elementos que están en la primera lista, en la segunda,
+o en ambas — sin repetir ningún elemento en el resultado.
+
+Precondiciones:
+
+- Las dos listas de entrada deben estar ordenadas según el mismo criterio.
+- Ninguna de las dos listas debe contener elementos repetidos dentro de sí misma.
+
+Postcondiciones:
+
+- La lista resultante contiene todos los elementos presentes en al menos una de las dos listas de entrada.
+- La lista resultante no contiene elementos repetidos.
+- La lista resultante queda ordenada según el mismo criterio que las listas de entrada.
+- Las listas originales no se modifican.
+
+función Union(A: Lista, B: Lista, comparador): Lista
+    resultado ← nueva Lista vacía
+    i ← 0
+    j ← 0
+    mientras i < A.tamaño() y j < B.tamaño() hacer
+        si comparador(A[i], B[j]) < 0 entonces
+            resultado.agregar(A[i])
+            i ← i + 1
+        sino si comparador(A[i], B[j]) > 0 entonces
+            resultado.agregar(B[j])
+            j ← j + 1
+        sino  // son iguales
+            resultado.agregar(A[i])
+            i ← i + 1
+            j ← j + 1
+        fin si
+    fin mientras
+    mientras i < A.tamaño() hacer
+        resultado.agregar(A[i])
+        i ← i + 1
+    fin mientras
+    mientras j < B.tamaño() hacer
+        resultado.agregar(B[j])
+        j ← j + 1
+    fin mientras
+    retornar resultado
+fin función
