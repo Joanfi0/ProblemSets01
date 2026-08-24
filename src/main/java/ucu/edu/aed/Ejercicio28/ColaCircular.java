@@ -1,8 +1,8 @@
 package ucu.edu.aed.Ejercicio28;
 
-import ucu.edu.aed.ejercicio17.Lista;
-import ucu.edu.aed.tda.TDACola;
-import ucu.edu.aed.tda.TDALista;
+import ucu.edu.aed.implementaciones.ListaArreglo;
+import ucu.edu.aed.implementaciones.tda.TDACola;
+import ucu.edu.aed.implementaciones.tda.TDALista;
 
 import java.util.Comparator;
 import java.util.NoSuchElementException;
@@ -28,7 +28,9 @@ public class ColaCircular<T> implements TDACola<T> {
     public ColaCircular(int capacidad) {
 
         if (capacidad <= 0) {
-            throw new IllegalArgumentException("La capacidad debe ser mayor a 0");
+            throw new IllegalArgumentException(
+                    "La capacidad debe ser mayor a 0"
+            );
         }
 
         this.capacidad = capacidad;
@@ -59,10 +61,13 @@ public class ColaCircular<T> implements TDACola<T> {
     @Override
     public T quitaDeCola() {
         if (esVacio()) {
-            throw new NoSuchElementException("La cola circular está vacía");
+            throw new NoSuchElementException(
+                    "La cola circular está vacía"
+            );
         }
 
         T removedData = vector[frente];
+
         vector[frente] = null;
 
         // Wraparound
@@ -76,7 +81,9 @@ public class ColaCircular<T> implements TDACola<T> {
     @Override
     public T frente() {
         if (esVacio()) {
-            throw new NoSuchElementException("La cola circular está vacía");
+            throw new NoSuchElementException(
+                    "La cola circular está vacía"
+            );
         }
 
         return vector[frente];
@@ -87,7 +94,9 @@ public class ColaCircular<T> implements TDACola<T> {
         checkElementNull(elem);
 
         if (!poneEnCola(elem)) {
-            throw new IllegalStateException("La cola circular está llena");
+            throw new IllegalStateException(
+                    "La cola circular está llena"
+            );
         }
     }
 
@@ -97,7 +106,9 @@ public class ColaCircular<T> implements TDACola<T> {
         checkIndexForAdd(index);
 
         if (size == capacidad) {
-            throw new IllegalStateException("La cola circular está llena");
+            throw new IllegalStateException(
+                    "La cola circular está llena"
+            );
         }
 
         // Si se agrega al final, equivale a ponerEnCola
@@ -111,7 +122,8 @@ public class ColaCircular<T> implements TDACola<T> {
          * usando índices lógicos de la cola.
          */
         for (int i = size; i > index; i--) {
-            vector[physicalIndex(i)] = vector[physicalIndex(i - 1)];
+            vector[physicalIndex(i)] =
+                    vector[physicalIndex(i - 1)];
         }
 
         vector[physicalIndex(index)] = elem;
@@ -141,7 +153,8 @@ public class ColaCircular<T> implements TDACola<T> {
 
         // Desplazar los elementos posteriores
         for (int i = index; i < size - 1; i++) {
-            vector[physicalIndex(i)] = vector[physicalIndex(i + 1)];
+            vector[physicalIndex(i)] =
+                    vector[physicalIndex(i + 1)];
         }
 
         // Limpiar la última posición ocupada
@@ -199,8 +212,11 @@ public class ColaCircular<T> implements TDACola<T> {
 
     @Override
     public T buscar(Predicate<T> predicate) {
+
         if (predicate == null) {
-            throw new IllegalArgumentException("Predicate cannot be null");
+            throw new IllegalArgumentException(
+                    "Predicate cannot be null"
+            );
         }
 
         for (int i = 0; i < size; i++) {
@@ -217,11 +233,14 @@ public class ColaCircular<T> implements TDACola<T> {
 
     @Override
     public TDALista<T> ordenar(Comparator<T> comparator) {
+
         if (comparator == null) {
-            throw new IllegalArgumentException("Comparator cannot be null");
+            throw new IllegalArgumentException(
+                    "Comparator cannot be null"
+            );
         }
 
-        Lista<T> sorted = new Lista<>();
+        TDALista<T> sorted = new ListaArreglo<>(size);
 
         for (int i = 0; i < size; i++) {
 
@@ -229,10 +248,13 @@ public class ColaCircular<T> implements TDACola<T> {
 
             int position = 0;
 
-            while (position < sorted.tamaño()
-                    && comparator.compare(
-                    sorted.obtener(position), elem) <= 0) {
-
+            while (
+                    position < sorted.tamaño()
+                            && comparator.compare(
+                            sorted.obtener(position),
+                            elem
+                    ) <= 0
+            ) {
                 position++;
             }
 
@@ -287,29 +309,38 @@ public class ColaCircular<T> implements TDACola<T> {
     }
 
     private void checkIndexOutOfBounds(int index) {
+
         if (index < 0 || index >= size) {
+
             throw new IndexOutOfBoundsException(
                     "Index out of bounds. Queue size: "
                             + size
                             + ", index: "
-                            + index);
+                            + index
+            );
         }
     }
 
     private void checkIndexForAdd(int index) {
+
         if (index < 0 || index > size) {
+
             throw new IndexOutOfBoundsException(
                     "Index out of bounds. Queue size: "
                             + size
                             + ", index: "
-                            + index);
+                            + index
+            );
         }
     }
 
     private void checkElementNull(T elem) {
+
         if (elem == null) {
+
             throw new IllegalArgumentException(
-                    "Input element cannot be null");
+                    "Input element cannot be null"
+            );
         }
     }
 }
