@@ -1,7 +1,7 @@
 package ucu.edu.aed.ejercicio17;
 
-import ucu.edu.aed.Implementaciones.ListaEnlazada;
-import ucu.edu.aed.Implementaciones.tda.TDALista;
+import ucu.edu.aed.implementaciones.ListaEnlazada;
+import ucu.edu.aed.implementaciones.tda.TDALista;
 
 import java.util.Comparator;
 

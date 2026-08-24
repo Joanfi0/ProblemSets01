@@ -1,6 +1,6 @@
 package ucu.edu.aed.ejercicio23;
 
-import ucu.edu.aed.Implementaciones.ListaEnlazada;
+import ucu.edu.aed.implementaciones.ListaEnlazada;
 import ucu.edu.aed.utils.FileUtils;
 
 public class AED {

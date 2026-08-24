@@ -1,12 +1,12 @@
 package ucu.edu.aed.ejercicio17;
 
-import ucu.edu.aed.Implementaciones.tda.TDALista;
+import ucu.edu.aed.implementaciones.tda.TDALista;
 import ucu.edu.aed.utils.FileUtils;
 
 public class Ejercicio17 {
 
-    private static final String ARCHIVO_ADQUISICIONES = "adquisiciones.txt";
-    private static final String ARCHIVO_PRESTAMOS = "prestamos.txt";
+    private static final String ARCHIVO_ADQUISICIONES = "src/main/resources/recursos-ejercicio-17/adquisiciones.txt";
+    private static final String ARCHIVO_PRESTAMOS = "src/main/resources/recursos-ejercicio-17/prestamos.txt";
 
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
