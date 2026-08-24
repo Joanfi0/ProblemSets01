@@ -1,4 +1,4 @@
-package ucu.edu.aed.tda;
+package ucu.edu.aed.Implementaciones.tda;
 
 /**
  * Define un Tipo de Dato Abstracto (TDA) Conjunto genérico.

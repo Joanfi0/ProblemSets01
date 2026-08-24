@@ -1,7 +1,6 @@
 package ucu.edu.aed.ejercicio19;
 
-import ucu.edu.aed.tda.TDALista;
-
+import ucu.edu.aed.Implementaciones.tda.TDALista;
 import java.util.Comparator;
 import java.util.function.Predicate;
 

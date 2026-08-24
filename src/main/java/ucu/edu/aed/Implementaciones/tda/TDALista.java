@@ -1,4 +1,4 @@
-package ucu.edu.aed.tda;
+package ucu.edu.aed.Implementaciones.tda;
 
 import java.util.Comparator;
 import java.util.function.Predicate;
