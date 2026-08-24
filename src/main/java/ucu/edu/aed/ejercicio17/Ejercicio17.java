@@ -1,6 +1,6 @@
 package ucu.edu.aed.ejercicio17;
 
-import ucu.edu.aed.tda.TDALista;
+import ucu.edu.aed.Implementaciones.tda.TDALista;
 import ucu.edu.aed.utils.FileUtils;
 
 public class Ejercicio17 {

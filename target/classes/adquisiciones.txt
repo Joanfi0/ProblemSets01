@@ -1,4 +1,0 @@
-9789974660001, Algoritmos y estructuras de datos, 1200.0, 5
-9789974660002, Bases de datos, 1500.0, 3
-9789974660003, Programacion en Java, 1800.0, 4
-9789974660001, Algoritmos y estructuras de datos, 1200.0, 2
