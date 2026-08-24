@@ -1,9 +1,9 @@
-package ucu.edu.aed.Implementaciones;
+package org.example;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ucu.edu.aed.implementaciones.Pila;
 
-import static junit.framework.Assert.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PilaTest {
