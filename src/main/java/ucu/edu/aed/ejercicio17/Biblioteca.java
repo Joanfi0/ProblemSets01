@@ -1,12 +1,13 @@
 package ucu.edu.aed.ejercicio17;
 
+import ucu.edu.aed.Implementaciones.ListaEnlazada;
 import ucu.edu.aed.Implementaciones.tda.TDALista;
 
 import java.util.Comparator;
 
 public class Biblioteca {
 
-    private final TDALista<Libro> catalogo = new Lista<>();
+    private final TDALista<Libro> catalogo = new ListaEnlazada<>();
 
     public double registrarAdquisicion(String codigo, String titulo, double precioReposicion, int cantidad) {
         if (cantidad < 0) {
