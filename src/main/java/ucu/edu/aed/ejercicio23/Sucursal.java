@@ -11,8 +11,14 @@ public class Sucursal {
 
     @Override
     public String toString() {
-        return "Sucursal{" +
-                "ubicacion='" + ubicacion + '\'' +
-                '}';
+        return "Sucursal -" + ubicacion;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Sucursal sucursal = (Sucursal) obj;
+        return ubicacion.equals(sucursal.ubicacion);
     }
 }
